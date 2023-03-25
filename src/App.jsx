@@ -1,4 +1,3 @@
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./pages/about/About";
 import Home from "./pages/home/home";
@@ -29,5 +28,7 @@ function App() {
     <>
       <RouterProvider router={router} />
     </>
+  );
+}
 
 export default App;

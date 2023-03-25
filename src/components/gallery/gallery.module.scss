@@ -1,0 +1,14 @@
+@import "/src/styles/main.scss";
+
+.gallery {
+  @include section-center;
+  background: $kasa-secondary;
+  @include flex();
+  flex-wrap: wrap;
+  gap: 6rem;
+  padding: 5rem;
+  //   place-items: center;
+  border-radius: 25px;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
