@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import styles from "./banner.module.css";
+import styles from "./banner.module.scss";
 
 const Banner = () => {
   const [homePage, setHomePage] = useState(false);
@@ -15,8 +15,10 @@ const Banner = () => {
   }, []);
 
   return (
-    <section className={homePage ? styles.homeBanner : aboutBanner}>
-      {homePage && <p>Chez vous, partout et ailleurs</p>}
+    <section className={homePage ? styles.homeBanner : styles.aboutBanner}>
+      {homePage && (
+        <p className={styles.message}>Chez vous, partout et ailleurs</p>
+      )}
     </section>
   );
 };

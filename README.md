@@ -249,17 +249,38 @@ export default Banner;
 
 - style [Banner](/src/components/banner/banner.module.scss)
 
-```css
+```scss
 @import "/src/styles/main.scss";
 
 .homeBanner {
-  width: 12.4rem;
+  width: 124rem;
   height: 22.3rem;
   background: rebeccapurple;
   @include flex;
+  @include section-center;
   border-radius: 25px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("../../assets/home_cover.png");
   background-position: center;
   background-size: cover;
+  margin-top: 6.7rem;
+
+  .aboutBanner {
+    //Temporaire
+    width: 124rem;
+    height: 40.5rem;
+    background: yellow;
+    @include flex;
+    border-radius: 25px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .message {
+    font-size: 4.8rem;
+    color: $kasa-primary;
+    font-weight: 500;
+  }
 }
 ```
 
