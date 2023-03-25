@@ -214,7 +214,6 @@ export default Footer;
 
 ```
 
-
 ## Section 3: HomePage
 
 ### 4. Banner Component
@@ -284,4 +283,116 @@ export default Banner;
 }
 ```
 
+### 5. Card & Gallery Component
 
+- create [Card](/src/components/card/card.jsx)
+
+```js
+import { Link } from "react-router-dom";
+import styles from "./card.module.scss";
+
+const Card = ({ id, title, cover }) => {
+  return (
+    <Link to={`/housing/${id}`} className={styles.cards}>
+      <img src={cover} alt={title} className={styles.image} />
+      <h3 className={styles.title}>{title}</h3>
+    </Link>
+  );
+};
+
+export default Card;
+```
+
+- style [Card](/src/components/card/card.module.scss)
+
+```scss
+@import "/src/styles/main.scss";
+
+.cards {
+  width: 34rem;
+  height: 34rem;
+  position: relative;
+  transition: box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+  border-radius: 25px;
+
+  :hover {
+    box-shadow: 0 2px 8px rgb(0, 0, 0);
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.2s ease-in-out;
+    will-change: transform;
+    border-radius: 25px;
+  }
+
+  :hover image {
+    transform: scale(1.5);
+  }
+
+  .title {
+    position: absolute;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    pointer-events: none; //important: to prevent the parent's hover effect from being applied to the child!
+    font-size: clamp(12px, 3vw, 18px); //default font-size 1.8rem
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8);
+    color: $kasa-primary;
+    bottom: 2rem;
+    left: 2rem;
+  }
+}
+```
+
+- create [Gallery](/src/components/gallery/Gallery.jsx)
+
+```js
+import datas from "../../data/data.json";
+import Card from "../card/Card";
+import styles from "./gallery.module.scss";
+
+console.log("🚀 ~ file: Gallery.js:2 ~ datas:", datas);
+
+const Gallery = () => {
+  return (
+    <section className={styles.gallery}>
+      {datas.map((data) => {
+        return (
+          <Card
+            key={data.id}
+            id={data.id}
+            title={data.title}
+            cover={data.cover}
+          />
+        );
+      })}
+    </section>
+  );
+};
+
+export default Gallery;
+```
+
+- style [Gallery](/src/components/gallery/gallery.module.scss)
+
+```scss
+@import "/src/styles/main.scss";
+
+.gallery {
+  @include section-center;
+  background: $kasa-secondary;
+  @include flex();
+  flex-wrap: wrap;
+  gap: 6rem;
+  padding: 5rem;
+  //   place-items: center;
+  border-radius: 25px;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+```

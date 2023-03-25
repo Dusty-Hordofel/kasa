@@ -1,11 +1,12 @@
 import Banner from "../../components/banner/Banner";
+import Gallery from "../../components/gallery/Gallery";
 import styles from "./home.module.scss";
 
 const Home = () => {
   return (
     <>
       <Banner />
-      <h1>Olivier</h1>
+      <Gallery />
     </>
   );
 };
