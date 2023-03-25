@@ -1,16 +1,18 @@
 @import "/src/styles/main.scss";
 
-.navigation {
-  @include flex(row, space-between, center);
-  color: $kasa-tertiary;
-  width: 31rem;
-
-  .activeLink {
-    transition: all 0.2s ease-in-out;
-    text-decoration: underline solid $kasa-tertiary;
-  }
-
-  a {
+nav {
+  .navigation {
+    @include flex(row, space-between, center);
     color: $kasa-tertiary;
+    width: 31rem;
+
+    .activeLink {
+      transition: all 0.2s ease-in-out;
+      text-decoration: underline solid $kasa-tertiary;
+    }
+
+    a {
+      color: $kasa-tertiary;
+    }
   }
 }

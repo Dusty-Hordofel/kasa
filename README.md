@@ -396,3 +396,5 @@ export default Gallery;
   margin-bottom: 5rem;
 }
 ```
+
+### 6. Update Informations
