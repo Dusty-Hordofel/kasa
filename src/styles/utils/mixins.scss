@@ -1,11 +1,22 @@
-@mixin flexbox-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
+// @mixin flexbox($justify: center, $align: center) {
+//   display: flex;
+//   justify-content: $justify;
+//   align-items: $align;
+// }
+
 
 @mixin section-center {
   width: 90vw;
   max-width: $max-width;
   margin: 0 auto;
 }
+
+
+@mixin flex($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
