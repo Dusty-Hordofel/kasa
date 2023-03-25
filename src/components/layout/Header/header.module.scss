@@ -1,0 +1,10 @@
+@import "/src/styles/main.scss";
+
+.header {
+  @include flex(row, space-between, center);
+  @include section-center;
+  padding-top: 4rem;
+  .image {
+    width: 211px;
+  }
+}

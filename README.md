@@ -129,3 +129,87 @@ const Layout = ({ children }) => {
 
 export default Layout;
 ```
+
+### 3. Style Layout
+
+![Header Component](./assets/../src/assets/Header.svg "Desktop Demo")
+
+- [Header](/src/components/Layout/Header/Header.jsx)
+
+```js
+import Logo from "../../../assets/kasa.svg";
+import Navbar from "../../navbar/Navbar";
+import styles from "./header.module.scss";
+
+const Header = () => {
+  return (
+    <header className={styles.header}>
+      <img src={Logo} className={styles.image} />
+      <Navbar />
+    </header>
+  );
+};
+
+export default Header;
+```
+
+- [Header](/src/components/Layout/Header/header.module.scss)
+
+```js
+@import "/src/styles/main.scss";
+
+.header {
+  @include flex(row, space-between, center);
+  @include section-center;
+  padding-top: 4rem;
+  .image {
+    width: 211px;
+  }
+}
+
+```
+
+![Footer Component](./assets/../src/assets/Footer.svg "Desktop Demo")
+
+- [Footer](/src/components/Layout/Footer/Footer.jsx)
+
+```js
+import Logo from "../../../assets/kasa-footer.svg";
+import styles from "./footer.module.scss";
+
+const Footer = () => {
+  return (
+    <footer className={styles.footer}>
+      <img
+        src={Logo}
+        className={styles.image}
+        alt="Kasa - agence de location d'appartements entre particuliers"
+      />
+      <p className={styles.copyright}>© 2020 Kasa. All rights reserved</p>
+    </footer>
+  );
+};
+
+export default Footer;
+```
+
+- style [Footer](/src/components/Layout/Footer/footer.module.scss)
+
+```js
+@import "/src/styles/main.scss";
+
+.footer {
+  @include flex(column, center, center);
+  background: black;
+  height: 21rem;
+  .image {
+    width: 13rem;
+    margin-bottom: 3.1rem;
+  }
+  .copyright {
+    color: $kasa-primary;
+    font-size: 2.4rem;
+  }
+}
+
+```
