@@ -214,3 +214,53 @@ export default Footer;
 
 ```
 
+
+## Section 3: HomePage
+
+### 4. Banner Component
+
+- create [Banner](/src/components/banner/Banner.jsx)
+
+```js
+import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import styles from "./banner.module.css";
+
+const Banner = () => {
+  const [homePage, setHomePage] = useState(false);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setHomePage(true);
+    }
+  }, []);
+
+  return (
+    <section className={homePage ? styles.homeBanner : aboutBanner}>
+      {homePage && <p>Chez vous, partout et ailleurs</p>}
+    </section>
+  );
+};
+
+export default Banner;
+```
+
+- style [Banner](/src/components/banner/banner.module.scss)
+
+```css
+@import "/src/styles/main.scss";
+
+.homeBanner {
+  width: 12.4rem;
+  height: 22.3rem;
+  background: rebeccapurple;
+  @include flex;
+  border-radius: 25px;
+  background-position: center;
+  background-size: cover;
+}
+```
+
+

@@ -1,0 +1,13 @@
+@import "/src/styles/main.scss";
+
+.homeBanner {
+  width: 12.4rem;
+  height: 22.3rem;
+  background: rebeccapurple;
+  @include flex;
+  border-radius: 25px;
+  //   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3))
+  //     url("../../assets/home_cover.png");
+  background-position: center;
+  background-size: cover;
+}

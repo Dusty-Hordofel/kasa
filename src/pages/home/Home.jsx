@@ -1,7 +1,13 @@
+import Banner from "../../components/banner/Banner";
 import styles from "./home.module.scss";
 
 const Home = () => {
-  return <h1>home</h1>;
+  return (
+    <>
+      <Banner />
+      <h1>Olivier</h1>
+    </>
+  );
 };
 
 export default Home;
