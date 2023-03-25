@@ -214,6 +214,7 @@ export default Footer;
 
 ```
 
+
 ## Section 3: HomePage
 
 ### 4. Banner Component
@@ -261,3 +262,5 @@ export default Banner;
   background-size: cover;
 }
 ```
+
+
