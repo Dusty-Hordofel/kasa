@@ -12,5 +12,8 @@
 
   @media screen and (max-width: 690px) {
     @include flex(column, center, center);
+    .image {
+      margin-bottom: 5rem;
+    }
   }
 }

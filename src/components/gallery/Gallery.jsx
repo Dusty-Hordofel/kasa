@@ -1,13 +1,15 @@
-import datas from "../../data/data.json";
+import { useContext } from "react";
+// import datas from "../../data/data.json";
 import Card from "../card/Card";
 import styles from "./gallery.module.scss";
-
-console.log("🚀 ~ file: Gallery.js:2 ~ datas:", datas);
+import { DataAvailabilityContext } from "../DataAvailabilityContext";
 
 const Gallery = () => {
+  const { homesData } = useContext(DataAvailabilityContext);
+
   return (
     <section className={styles.gallery}>
-      {datas.map((data) => {
+      {homesData.map((data) => {
         return (
           <Card
             key={data.id}
