@@ -396,3 +396,112 @@ export default Gallery;
   margin-bottom: 5rem;
 }
 ```
+
+### 6. Update Informations
+
+## Section 4: About
+
+### 7. Fill About Page
+
+- add [Banner](/src/components/banner/Banner.jsx)
+- create [DataAvailabilityContext](src/components/DataAvailabilityContext.jsx) to share Data
+
+```jsx
+import { createContext, useState } from "react";
+
+export const DataAvailabilityContext = createContext();
+
+export const DataAvailabilityProvider = ({
+  children,
+  apartment,
+  aboutData,
+}) => {
+  const [homesData, setHomeData] = useState(apartment);
+  const [accordionData, setAccordionData] = useState(aboutData);
+
+  return (
+    <DataAvailabilityContext.Provider value={{ homesData, accordionData }}>
+      {children}
+    </DataAvailabilityContext.Provider>
+  );
+};
+```
+
+- add `DataAvailabilityProvider` in [main](src/main.jsx)
+
+```jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import Layout from "./components/layout/Layout";
+import "./styles/main.scss";
+import { DataAvailabilityProvider } from "./components/DataAvailabilityContext";
+import { aboutData, apartment } from "./data/data";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <DataAvailabilityProvider apartment={apartment} aboutData={aboutData}>
+      <Layout>
+        <App />
+      </Layout>
+    </DataAvailabilityProvider>
+  </React.StrictMode>
+);
+```
+
+- create [Collapse](src/components/collapse/Collapse.jsx) && [About](src/pages/about/About.jsx)
+
+```jsx
+import React, { useCallback, useContext, useState } from "react";
+
+import styles from "./collapse.module.scss";
+import arrow from "../../assets/arrow.svg";
+import { DataAvailabilityContext } from "../DataAvailabilityContext";
+import classNames from "classnames";
+
+const Collapse = () => {
+  const [isClicked, setIsClicked] = useState(null);
+  const { accordionData } = useContext(DataAvailabilityContext);
+
+  const revealDetails = useCallback(
+    (index) => {
+      if (index === isClicked) {
+        return setIsClicked(null);
+      }
+      setIsClicked(index);
+    },
+    [isClicked]
+  );
+
+  return (
+    <ul className={styles.Collapse}>
+      {accordionData.map(({ title, content }, index) => (
+        <li className={styles.collapse_list_item}>
+          <div className={classNames(styles.collapse_description)}>
+            <h3 className={styles.collapse_title}>{title}</h3>
+            <img
+              src={arrow}
+              onClick={() => revealDetails(index)}
+              className={
+                isClicked === index
+                  ? styles.collapsed_arrow
+                  : styles.collapse_arrow
+              }
+            />
+          </div>
+          <div
+            className={
+              isClicked === index ? styles.show_content : styles.hide_content
+            }
+          >
+            <p>{content}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  );
+};
+export default Collapse;
+```
+
+- create [Collapse]()

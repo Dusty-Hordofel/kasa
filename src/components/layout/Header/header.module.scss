@@ -3,8 +3,17 @@
 .header {
   @include flex(row, space-between, center);
   @include section-center;
+  flex-wrap: wrap;
   padding-top: 4rem;
+  transition: all 0.2s ease-in-out;
   .image {
     width: 211px;
+  }
+
+  @media screen and (max-width: 690px) {
+    @include flex(column, center, center);
+    .image {
+      margin-bottom: 5rem;
+    }
   }
 }

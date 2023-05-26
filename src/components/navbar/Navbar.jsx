@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import styles from "./navbar.module.scss";
 
 const Navbar = () => {
   const currentRoute = window.location.pathname;
   console.log("🚀 ~ file: Navbar.jsx:6 ~ Navbar ~ currentRoute:", currentRoute);
   return (
-    <nav>
+    <nav className={styles.nav}>
       <ul className={styles.navigation}>
         <li className={currentRoute === "/" ? styles.activeLink : ""}>
           <a href={`/`}> Accueil</a>
