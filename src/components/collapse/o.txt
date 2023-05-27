@@ -1,9 +1,0 @@
-/*
-
-  <div className={collapsed ? styles.show_content : styles.hide_content}>
-        {Array.isArray(content)
-          ? content.map((item, index) => <p key={index}>{item}</p>)
-          : content}
-        //if content is Array we map that array and display each item , else we just  display it}
-      </div> 
-*/

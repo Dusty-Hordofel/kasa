@@ -1,0 +1,72 @@
+@import "/src/styles/main.scss";
+
+.housing {
+  @include section-center;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 23px;
+
+    .left {
+      .title {
+        margin-top: 31px;
+        color: $kasa-tertiary;
+        margin-bottom: 32px;
+
+        h1 {
+          font-weight: 500;
+        }
+      }
+
+      .tags {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        button {
+          background: $kasa-tertiary;
+          padding: 5px 41px;
+          border-radius: 25px;
+          color: white;
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+
+      .host {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 55px;
+        gap: 10px;
+
+        img {
+          width: 64px;
+          height: 64px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+        p {
+          color: $kasa-tertiary;
+        }
+      }
+
+      .housing_stars {
+        display: flex;
+        justify-content: space-between;
+        align-self: end;
+      }
+    }
+
+    .accordion {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 76px;
+      margin-bottom: 20px;
+    }
+  }
+}

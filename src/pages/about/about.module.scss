@@ -1,0 +1,11 @@
+@import "/src/styles/main.scss";
+
+.about {
+  max-width: 102.3rem;
+  @include section-center;
+  main {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 201px;
+  }
+}

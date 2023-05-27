@@ -1,21 +1,16 @@
 @import "/src/styles/main.scss";
 
 .Collapse {
-  max-width: 102.3rem;
-  @include section-center;
-  margin-bottom: 201px;
+  margin-top: 31px;
 
-  .collapse_list_item {
-    margin-top: 31px;
-  }
   .collapse_description {
     background: $kasa-tertiary;
     @include flex($justify: space-between);
     padding: 0.7rem 1.8rem 0.7rem 1.8rem;
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
-    width: 90%;
-    margin: 0 auto;
+    width: 100%;
+    // margin: 0 auto;
     cursor: pointer;
 
     .collapse_title {
@@ -40,7 +35,7 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     color: $kasa-tertiary;
-    width: 90%;
+    width: 100%;
     padding: 2rem;
     margin: 0 auto 3rem auto;
   }
