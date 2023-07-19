@@ -5,9 +5,7 @@ import Layout from "./components/layout/Layout";
 import "./styles/main.scss";
 import { DataAvailabilityProvider } from "./components/DataAvailabilityContext";
 import { aboutData, apartment } from "./data/data";
-// import "./index.css";
 
-// data={aboutData}
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <DataAvailabilityProvider apartment={apartment} aboutData={aboutData}>

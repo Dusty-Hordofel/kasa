@@ -4,18 +4,16 @@ import Card from "../card/Card";
 import styles from "./gallery.module.scss";
 import { DataAvailabilityContext } from "../DataAvailabilityContext";
 
-const Gallery = () => {
-  const { homesData } = useContext(DataAvailabilityContext);
-
+const Gallery = ({ data }) => {
   return (
     <section className={styles.gallery}>
-      {homesData.map((data) => {
+      {data.map((content) => {
         return (
           <Card
-            key={data.id}
-            id={data.id}
-            title={data.title}
-            cover={data.cover}
+            key={content.id}
+            id={content.id}
+            title={content.title}
+            cover={content.cover}
           />
         );
       })}

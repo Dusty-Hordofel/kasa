@@ -3,18 +3,18 @@ import styles from "./housing.module.scss";
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import Slider from "../../components/Slider/Slider";
-import { DataAvailabilityContext } from "../../components/DataAvailabilityContext";
+// import { DataAvailabilityContext } from "../../components/DataAvailabilityContext";
 import greyStar from "../../assets/grey_star.png";
 import redStar from "../../assets/red_star.png";
 import Accordion from "../../components/accordion/Accordion";
 
-const Housing = () => {
+const Housing = ({ data }) => {
   const [sliderImages, setSliderImages] = useState([]);
 
-  const { homesData } = useContext(DataAvailabilityContext);
+  // const { homesData } = useContext(DataAvailabilityContext);
   const { id } = useParams();
 
-  const currentHomeData = homesData.find((home) => home.id === id);
+  const currentHomeData = data.find((home) => home.id === id);
   const {
     description,
     equipments,

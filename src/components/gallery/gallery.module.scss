@@ -3,7 +3,7 @@
 .gallery {
   @include section-center;
   background: $kasa-secondary;
-  @include flex();
+  @include flex(row, center, start);
   flex-wrap: wrap;
   gap: 6rem;
   padding: 5rem;
