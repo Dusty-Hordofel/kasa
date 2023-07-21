@@ -3,6 +3,7 @@
 nav {
   .navigation {
     @include flex(row, space-between, center);
+
     color: $kasa-tertiary;
     width: 31rem;
 
