@@ -144,7 +144,7 @@ import styles from "./header.module.scss";
 const Header = () => {
   return (
     <header className={styles.header}>
-      <img src={Logo} className={styles.image} />
+      <img src={Logo} className={styles.image} loading="lazy" />
       <Navbar />
     </header>
   );
@@ -294,7 +294,7 @@ import styles from "./card.module.scss";
 const Card = ({ id, title, cover }) => {
   return (
     <Link to={`/housing/${id}`} className={styles.cards}>
-      <img src={cover} alt={title} className={styles.image} />
+      <img src={cover} alt={title} className={styles.image} loading="lazy" />
       <h3 className={styles.title}>{title}</h3>
     </Link>
   );
@@ -480,6 +480,7 @@ const Collapse = () => {
           <div className={classNames(styles.collapse_description)}>
             <h3 className={styles.collapse_title}>{title}</h3>
             <img
+              loading="lazy"
               src={arrow}
               onClick={() => revealDetails(index)}
               className={
@@ -529,6 +530,7 @@ const Accordion = ({ title, content }) => {
       <div className={classNames(styles.collapse_description)}>
         <h3 className={styles.collapse_title}>{title}</h3>
         <img
+          loading="lazy"
           src={arrow}
           onClick={handleClicked}
           className={isClicked ? styles.collapsed_arrow : styles.collapse_arrow}
@@ -600,13 +602,14 @@ const Housing = () => {
         <div className={styles.right}>
           <div className={styles.host}>
             <p>{host.name}</p>
-            <img src={host.picture} alt="host" />
+            <img src={host.picture} alt="host" loading="lazy" />
           </div>
           <div className={styles.housing_stars}>
             {[...Array(5)].map((star, index) => {
               const ratingValue = index + 1;
               return (
                 <img
+                  loading="lazy"
                   key={index}
                   src={ratingValue <= rating ? redStar : greyStar}
                   alt="star"
@@ -706,3 +709,7 @@ export default Housing;
 ```
 
 ### 9. Update Project Script
+
+### 10. Lazy loading
+
+It's helps us to load only the image visible on screen.
