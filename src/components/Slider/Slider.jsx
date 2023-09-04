@@ -1,5 +1,4 @@
-import { useContext, useState } from "react";
-import { DataAvailabilityContext } from "../DataAvailabilityContext";
+import { useState } from "react";
 import Arrow from "../../icons/Arrow";
 import styles from "./slider.module.scss";
 
@@ -16,17 +15,16 @@ export default function Slider({ sliderImages }) {
     if (currentIndex === 0) setCurrentIndex(sliderImages.length - 1);
   };
 
+  const backgroundImage = {
+    backgroundImage: `url(${sliderImages[currentIndex]})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    borderRadius: "25px",
+  };
+
   return (
-    <section
-      style={{
-        backgroundImage: `url(${sliderImages[currentIndex]})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        borderRadius: "25px",
-      }}
-      className={styles.slider}
-    >
+    <section style={backgroundImage} className={styles.slider}>
       {sliderImages.length > 1 && (
         <div className={styles.slider_direction}>
           <div onClick={prevSlide}>

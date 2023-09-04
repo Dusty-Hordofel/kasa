@@ -5,7 +5,7 @@ const Card = ({ id, title, cover }) => {
   return (
     <div className={styles.card}>
       <Link to={`/housing/${id}`}>
-        <img src={cover} alt={title} className={styles.image} />
+        <img loading="lazy" src={cover} alt={title} className={styles.image} />
         <h3 className={styles.title}>{title}</h3>
       </Link>
     </div>
