@@ -11,6 +11,7 @@ import NotFound from "./pages/notFound/NotFound";
 import About from "./pages/about/About";
 import { useContext } from "react";
 import { DataAvailabilityContext } from "./components/DataAvailabilityContext";
+import Layout from "./components/layout/Layout";
 
 // const router = createBrowserRouter([
 //   {
@@ -37,12 +38,14 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/housing/:id" element={<Housing data={homesData} />} />
-          <Route path="/about" element={<About data={accordionData} />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/housing/:id" element={<Housing data={homesData} />} />
+            <Route path="/about" element={<About data={accordionData} />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Layout>
       </BrowserRouter>
     </>
   );
