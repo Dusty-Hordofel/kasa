@@ -1,6 +1,3 @@
-// import "./slider.scss";
-// import ArrowRight from "../../assets/chevron_carousel_right.png";
-// import ArrowLeft from "../../assets/chevron_carousel_left.png";
 import { useContext, useState } from "react";
 import { DataAvailabilityContext } from "../DataAvailabilityContext";
 import Arrow from "../../icons/Arrow";
