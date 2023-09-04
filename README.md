@@ -704,3 +704,5 @@ export default Housing;
   }
 }
 ```
+
+### 9. Update Project Script
