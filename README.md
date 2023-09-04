@@ -713,3 +713,4 @@ export default Housing;
 ### 10. Lazy loading
 
 It's helps us to load only the image visible on screen.
+https://blog.webdevsimplified.com/2023-05/lazy-load-images/
