@@ -16,6 +16,7 @@ const Accordion = ({ title, content }) => {
       <div className={classNames(styles.collapse_description)}>
         <h3 className={styles.collapse_title}>{title}</h3>
         <img
+          loading="lazy"
           src={arrow}
           onClick={handleClicked}
           className={isClicked ? styles.collapsed_arrow : styles.collapse_arrow}
