@@ -5,11 +5,6 @@ import {
   RouterProvider,
   Routes,
 } from "react-router-dom";
-// import { lazy, Suspense } from "react";
-// import Home from "./pages/home/Home";
-// import Housing from "./pages/housing/Housing";
-// import NotFound from "./pages/notFound/NotFound";
-// import About from "./pages/about/About";
 import { useContext } from "react";
 import { DataAvailabilityContext } from "./components/DataAvailabilityContext";
 import Layout from "./components/layout/Layout";

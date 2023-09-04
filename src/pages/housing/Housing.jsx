@@ -49,7 +49,7 @@ const Housing = ({ data }) => {
         <div className={styles.right}>
           <div className={styles.host}>
             <p>{host.name}</p>
-            <img src={host.picture} alt="host" />
+            <img loading="lazy" src={host.picture} alt="host" />
           </div>
           <div className={styles.housing_stars}>
             {[...Array(5)].map((star, index) => {

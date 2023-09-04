@@ -5,6 +5,7 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <img
+        loading="lazy"
         src={Logo}
         className={styles.image}
         alt="Kasa - agence de location d'appartements entre particuliers"
