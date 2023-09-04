@@ -504,4 +504,205 @@ const Collapse = () => {
 export default Collapse;
 ```
 
-- create [Collapse]()
+## Section 5: Housing
+
+### 8. Housing
+
+- update [Collapse](src/components/collapse/Collapse.jsx) to [Accordion](src/components/accordion/Accordion.jsx)
+
+```jsx
+import { useState } from "react";
+
+import styles from "./accordion.module.scss";
+import arrow from "../../assets/arrow.svg";
+import classNames from "classnames";
+
+const Accordion = ({ title, content }) => {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClicked = () => {
+    setIsClicked(!isClicked);
+  };
+
+  return (
+    <div className={styles.Collapse}>
+      <div className={classNames(styles.collapse_description)}>
+        <h3 className={styles.collapse_title}>{title}</h3>
+        <img
+          src={arrow}
+          onClick={handleClicked}
+          className={isClicked ? styles.collapsed_arrow : styles.collapse_arrow}
+        />
+      </div>
+      <div className={isClicked ? styles.show_content : styles.hide_content}>
+        {Array.isArray(content)
+          ? content.map((item, index) => <p key={index}>{item}</p>)
+          : content}
+        {/* if content is Array we map that array and display each item , else we just  display it} */}
+      </div>
+    </div>
+  );
+};
+export default Accordion;
+```
+
+- create [Housing](src/pages/housing/Housing.jsx)
+
+```jsx
+import { useEffect, useState } from "react";
+import styles from "./housing.module.scss";
+import { useParams } from "react-router-dom";
+import { useContext } from "react";
+import Slider from "../../components/Slider/Slider";
+import { DataAvailabilityContext } from "../../components/DataAvailabilityContext";
+import greyStar from "../../assets/grey_star.png";
+import redStar from "../../assets/red_star.png";
+import Accordion from "../../components/accordion/Accordion";
+
+const Housing = () => {
+  const [sliderImages, setSliderImages] = useState([]);
+
+  const { homesData } = useContext(DataAvailabilityContext);
+  const { id } = useParams();
+
+  const currentHomeData = homesData.find((home) => home.id === id);
+  const {
+    description,
+    equipments,
+    title,
+    location,
+    tags,
+    host,
+    pictures,
+    rating,
+  } = currentHomeData;
+
+  useEffect(() => {
+    setSliderImages(pictures);
+  }, [id]);
+
+  return (
+    <div className={styles.housing}>
+      <Slider sliderImages={sliderImages} />
+      <div className={styles.header}>
+        <div className={styles.left}>
+          <div className={styles.title}>
+            <h1>{title}</h1>
+            <p>{location}</p>
+          </div>
+          <div className={styles.tags}>
+            {tags.map((tag, index) => {
+              return <button key={index}>{tag}</button>;
+            })}
+          </div>
+        </div>
+
+        <div className={styles.right}>
+          <div className={styles.host}>
+            <p>{host.name}</p>
+            <img src={host.picture} alt="host" />
+          </div>
+          <div className={styles.housing_stars}>
+            {[...Array(5)].map((star, index) => {
+              const ratingValue = index + 1;
+              return (
+                <img
+                  key={index}
+                  src={ratingValue <= rating ? redStar : greyStar}
+                  alt="star"
+                />
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.accordion}>
+        <Accordion title={"Description"} content={description} />
+        <Accordion title={"Équipements"} content={equipments} />
+      </div>
+    </div>
+  );
+};
+
+export default Housing;
+```
+
+- style [Housing](src/pages/housing/housing.module.scss)
+
+```scss
+@import "/src/styles/main.scss";
+
+.housing {
+  @include section-center;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 23px;
+  }
+
+  .left {
+    .title {
+      margin-top: 31px;
+      color: $kasa-tertiary;
+      margin-bottom: 32px;
+
+      h1 {
+        font-weight: 500;
+      }
+    }
+
+    .tags {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      button {
+        background: $kasa-tertiary;
+        padding: 5px 41px;
+        border-radius: 25px;
+        color: white;
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+
+    .host {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 55px;
+      gap: 10px;
+
+      img {
+        width: 64px;
+        height: 64px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      p {
+        color: $kasa-tertiary;
+      }
+    }
+
+    .housing_stars {
+      display: flex;
+      justify-content: space-between;
+      align-self: end;
+    }
+  }
+
+  .accordion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 76px;
+    margin-bottom: 20px;
+  }
+}
+```
+
+### 9. Update Project Script

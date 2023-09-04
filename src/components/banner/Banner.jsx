@@ -5,8 +5,7 @@ import styles from "./banner.module.scss";
 const Banner = () => {
   const [homePage, setHomePage] = useState(false);
 
-  const location = useLocation();
-  console.log("🚀 ~ file: Banner.jsx:9 ~ Banner ~ location:", location);
+  const location = useLocation(); //useLocation() is a hook that returns the location object that represents the current URL. It's useful for accessing the information about the current URL without having to pass props through several components.
 
   useEffect(() => {
     if (location.pathname === "/") {

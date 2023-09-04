@@ -1,17 +1,21 @@
+import Banner from "../../components/banner/Banner";
+import styles from "./about.module.scss";
+import Accordion from "../../components/accordion/Accordion";
 import { useContext } from "react";
 import { DataAvailabilityContext } from "../../components/DataAvailabilityContext";
-import Banner from "../../components/banner/Banner";
-import Collapse from "../../components/collapse/Collapse";
-import styles from "./about.module.scss";
 
-const About = () => {
+const About = ({ data }) => {
+  // const { accordionData } = useContext(DataAvailabilityContext);
+
   return (
-    <div>
+    <div className={styles.about}>
       <Banner />
       <main className={styles.main}>
-        <div>
-          <Collapse />
-        </div>
+        {data.map(({ id, title, content }, index) => {
+          return (
+            <Accordion key={id} title={title} content={content} index={index} />
+          );
+        })}
       </main>
     </div>
   );

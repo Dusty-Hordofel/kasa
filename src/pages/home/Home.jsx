@@ -1,12 +1,14 @@
+import { useContext } from "react";
 import Banner from "../../components/banner/Banner";
 import Gallery from "../../components/gallery/Gallery";
-import styles from "./home.module.scss";
+import { DataAvailabilityContext } from "../../components/DataAvailabilityContext";
 
 const Home = () => {
+  const { homesData } = useContext(DataAvailabilityContext);
   return (
     <>
       <Banner />
-      <Gallery />
+      <Gallery data={homesData} />
     </>
   );
 };

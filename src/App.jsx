@@ -5,11 +5,12 @@ import {
   RouterProvider,
   Routes,
 } from "react-router-dom";
-// import About from "./pages/about/page";
 import Home from "./pages/home/home";
 import Housing from "./pages/housing/Housing";
 import NotFound from "./pages/notFound/NotFound";
 import About from "./pages/about/About";
+import { useContext } from "react";
+import { DataAvailabilityContext } from "./components/DataAvailabilityContext";
 
 // const router = createBrowserRouter([
 //   {
@@ -31,14 +32,15 @@ import About from "./pages/about/About";
 // ]);
 
 function App() {
+  const { accordionData, homesData } = useContext(DataAvailabilityContext);
+
   return (
     <>
-      {/* <RouterProvider router={router} /> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/housing/:id" element={<Housing />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/housing/:id" element={<Housing data={homesData} />} />
+          <Route path="/about" element={<About data={accordionData} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
