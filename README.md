@@ -714,3 +714,95 @@ export default Housing;
 
 It's helps us to load only the image visible on screen.
 https://blog.webdevsimplified.com/2023-05/lazy-load-images/
+
+### 11. Update Components
+
+- create [Avatar](src/components/avatar/Avatar.jsx)
+
+```jsx
+import React from "react";
+import styles from "./avatar.module.scss";
+
+const Avatar = ({ name, picture }) => {
+  return (
+    <div className={styles.host}>
+      <p>{name}</p>
+      <img loading="lazy" src={picture} alt="host" />
+    </div>
+  );
+};
+
+export default Avatar;
+```
+
+- create [Stars](src/components/stars/Stars.jsx)
+
+```jsx
+import React from "react";
+import greyStar from "../../assets/grey_star.png";
+import redStar from "../../assets/red_star.png";
+import styles from "./stars.module.scss";
+
+const Stars = ({ rating }) => {
+  return (
+    <div className={styles.housing_stars}>
+      {[...Array(5)].map((star, index) => {
+        const ratingValue = index + 1; // définit la notation de chaque étoile
+        return (
+          <img
+            key={index}
+            src={ratingValue <= rating ? redStar : greyStar}
+            alt="star"
+          />
+        );
+      })}
+    </div>
+  );
+};
+
+export default Stars;
+```
+
+- create [Tags](src/components/tag/Tags.jsx)
+
+```jsx
+import React from "react";
+import styles from "./tags.module.scss";
+
+const Tags = ({ tags }) => {
+  return (
+    <div className={styles.tags}>
+      {tags.map((tag, index) => {
+        return <button key={index}>{tag}</button>;
+      })}
+    </div>
+  );
+};
+
+export default Tags;
+```
+
+- create [NotFound](src/pages/notFound/NotFound.jsx)
+
+```jsx
+import styles from "./notFound.module.scss";
+import { Link } from "react-router-dom";
+
+const NotFound = () => {
+  return (
+    <div className={styles.notFound}>
+      <div className={styles.infos}>
+        <h1 className={styles.title}>404</h1>
+        <p className={styles.content}>
+          La page que vous recherchez n'existe pas.
+        </p>
+      </div>
+      <Link className={styles.home} to="/">
+        Retourner sur la page d'accueil
+      </Link>
+    </div>
+  );
+};
+
+export default NotFound;
+```

@@ -1,33 +1,8 @@
-import {
-  BrowserRouter,
-  createBrowserRouter,
-  Route,
-  RouterProvider,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useContext } from "react";
 import { DataAvailabilityContext } from "./components/DataAvailabilityContext";
 import Layout from "./components/layout/Layout";
 import { lazy, Suspense } from "react";
-
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <Home />,
-//   },
-//   {
-//     path: "/housing/:id",
-//     element: <Housing />,
-//   },
-//   {
-//     path: "/about",
-//     element: <About />,
-//   },
-//   {
-//     path: "*",
-//     element: <NotFound />,
-//   },
-// ]);
 
 const Home = lazy(() => import("./pages/home/Home"));
 const About = lazy(() => import("./pages/about/About"));

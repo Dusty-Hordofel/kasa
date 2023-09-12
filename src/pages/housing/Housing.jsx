@@ -3,15 +3,16 @@ import styles from "./housing.module.scss";
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import Slider from "../../components/Slider/Slider";
-// import { DataAvailabilityContext } from "../../components/DataAvailabilityContext";
 import greyStar from "../../assets/grey_star.png";
 import redStar from "../../assets/red_star.png";
 import Accordion from "../../components/accordion/Accordion";
+import Avatar from "../../components/avatar/Avatar";
+import Tags from "../../components/tag/Tags";
+import Stars from "../../components/stars/Stars";
 
 const Housing = ({ data }) => {
   const [sliderImages, setSliderImages] = useState([]);
 
-  // const { homesData } = useContext(DataAvailabilityContext);
   const { id } = useParams();
 
   const currentHomeData = data.find((home) => home.id === id);
@@ -39,30 +40,12 @@ const Housing = ({ data }) => {
             <h1>{title}</h1>
             <p>{location}</p>
           </div>
-          <div className={styles.tags}>
-            {tags.map((tag, index) => {
-              return <button key={index}>{tag}</button>;
-            })}
-          </div>
+          <Tags tags={tags} />
         </div>
 
         <div className={styles.right}>
-          <div className={styles.host}>
-            <p>{host.name}</p>
-            <img loading="lazy" src={host.picture} alt="host" />
-          </div>
-          <div className={styles.housing_stars}>
-            {[...Array(5)].map((star, index) => {
-              const ratingValue = index + 1;
-              return (
-                <img
-                  key={index}
-                  src={ratingValue <= rating ? redStar : greyStar}
-                  alt="star"
-                />
-              );
-            })}
-          </div>
+          <Avatar name={host.name} picture={host.picture} />
+          <Stars rating={rating} />
         </div>
       </div>
 

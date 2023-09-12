@@ -31,19 +31,6 @@
           font-weight: 500;
         }
       }
-
-      .tags {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        flex-wrap: wrap;
-        button {
-          background: $kasa-tertiary;
-          padding: 5px 41px;
-          border-radius: 25px;
-          color: white;
-        }
-      }
     }
 
     .right {
@@ -59,28 +46,6 @@
         .housing_stars {
           align-items: center;
         }
-      }
-
-      .host {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-
-        img {
-          width: 64px;
-          height: 64px;
-          object-fit: cover;
-          border-radius: 50%;
-        }
-        p {
-          color: $kasa-tertiary;
-        }
-      }
-
-      .housing_stars {
-        display: flex;
-        justify-content: space-between;
       }
     }
   }
