@@ -8,11 +8,11 @@ const Navbar = () => {
     <nav className={styles.nav}>
       <ul className={styles.navigation}>
         <li className={currentRoute === "/" ? styles.activeLink : ""}>
-          <a href={`/`}> Accueil</a>
+          <Link to={`/`}>Accueil</Link>
         </li>
 
         <li className={currentRoute === "/about" ? styles.activeLink : ""}>
-          <a href={`/about`}> A Propos</a>
+          <Link to={`/about`}>About</Link>
         </li>
       </ul>
     </nav>

@@ -1,0 +1,18 @@
+@import "/src/styles/main.scss";
+
+.host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  p {
+    color: $kasa-tertiary;
+  }
+}

@@ -1,0 +1,13 @@
+@import "/src/styles/main.scss";
+.tags {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  button {
+    background: $kasa-tertiary;
+    padding: 5px 41px;
+    border-radius: 25px;
+    color: white;
+  }
+}
